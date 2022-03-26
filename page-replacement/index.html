@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Replacement Alogrithm</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="pull-left visible-md visible-lg">
+            <div id="logo-img"></div>
+          </a>
+
+          <div class="navbar-brand">
+            <a href="index.html"><h1>Page Replacement Algorithms</h1></a>
+          </div>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+            <li>
+              <a href="optimal.html">
+              	<br class="hidden-xs"> Live Simulation</a>
+            </li>
+            <li>
+              <a href="#foot">
+                <br class="hidden-xs"> About Us</a>
+            </li>
+            <li>
+              <a href="#foot">
+                <br class="hidden-xs"> References</a>
+            </li>
+          </ul><!-- #nav-list -->
+        </div><!-- .collapse .navbar-collapse -->
+      </div><!-- .container -->
+    </nav><!-- #header-nav -->
+  </header>
+
+  
+
+  <div id="main-content" class="container">
+    <div class="jumbotron">
+      <h1 style="text-align: center; color: black">Introduction</h1><br><br>
+      <p><h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">Non-contiguous memory allocation is a memory allocation technique that allows storing parts of a single process in a non-contiguous manner. Different parts of the same process can be stored at different places in the main memory.
+ 
+        Non-contiguous memory allocation is of two types:<br>
+        
+        1)Paging<br> 
+        2)Segmentation<br>
+        </h4>
+      </p>
+      <p><h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">Let us study in-depth about paging:<br><br></h4>
+        <h3 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;"><strong>Paging:</strong></h3><br>
+        <h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">Paging is a storage mechanism that allows OS to retrieve processes from the secondary storage into the main memory in the form of pages.Paging is used for faster access to data, and it is a logical concept.
+Paging is basically an equal fixed size partitioning scheme wherein the main memory and the secondary memory are divided into fixed-size partitions.
+The partitions in the secondary memory are called pages and the partitions of the main memory are called the frames. Pages of the process are brought into the main memory only when they are required otherwise they reside in the secondary storage. Different operating systems have different frame sizes.
+</h4></p>
+<p><h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">Example:
+  Let us assume that the main memory is of the size 32KB and the frame size is 2KB each. The main memory will be divided into 16 frames each of 2KB. Say there are 4 separate processes in the system namely, P1, P2, P3, P4. Each of the processes is of 8KB and all the processes are divided into a page of 2KB.  The operating system can store 1 page in one frame. At the beginning of the process, all the frames remain empty so that all the pages of the processes will get stored in a contiguous way.</h4></p>
+  <div><h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">Now say for example that P2 and P4 are moved to the waiting state after some time and so we can say that 8 frames have become empty. Other pages can be loaded into these empty boxes. Meanwhile, there is another P5 of 16KB waiting in the ready queue. So now the process P5 is divided into 2 parts (internally contiguous ) each of 8KB. So now there are 8 non-contiguous frames present in the main memory. The CPU always generates the logical address and from that, the physical address of the main memory is generating with the help of page offset value and frame number.
+ </h4></p>
+ <p><h3 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;"><strong>Advantages Of Paging:</strong></h3><br>
+ 	<h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">
+  Here, are the advantages of using the Paging method:<br>
+  ->Easy to use memory management algorithm<br>
+  ->No need for external Fragmentation<br>
+  ->Swapping is easy between equal-sized pages and page frames.<hr>
+  </h4></p>
+  <p><h3 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;"><strong>Disdvantages Of Paging:</strong></h3><br>
+  	<h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">
+    Here, are the drawback/ cons of Paging:<br>
+    ->May cause Internal fragmentation.<br>
+    ->Complex memory management algorithm.<br>
+    ->Page tables consume additional memory.<br>
+    ->Multi-level paging may lead to memory reference overhead.<br>
+    </h4></p>
+    </div>
+</div>
+
+
+    <div id="home-tiles" class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="FIFO.html"><div style= "position: center;"id="menu-tile"><span style="color: rgb(17, 16, 16);">First In First Out</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="Belady Anamokly.html"><div id="specials-tile"><span style="color: rgb(17, 16, 16);">Belady's Anamoly</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+      	<a href="OPR.html"><div id="map-tile"><span style="color: rgb(14, 12, 12);">Optimal Page Replacement</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+      	<a href="LRU.html"><div id="fourth-tile"><span style="color: rgb(20, 19, 19);">Least Recently Used</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+      	<a href="MRU.html"><div id="MRU-tile"><span style="color: rgb(20, 19, 19);">Most Recently Used</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+      	<a href="Random.html"><div id="Random-tile"><span style="color: rgb(20, 19, 19);"> Random Page Replacement</span></div></a>
+      </div>
+    </div><br><br>
+
+  </div>
+      <footer class="footer" id="foot">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                          <h3><strong>About Us</strong></h3>
+                        </div>
+                        <p style="color: black"> We are the students of Pandit Deendayal Petroleum University currently in 3rd year of Information and Communication Technology. We have tried to make the learning process simpler by the use of easy content with examples along with live visualisations which will make the concept more crystal clear. </p>
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3><strong>References</strong></h3>
+                        </div>
+
+                        <ul class="footer-links hov">
+                            <li><a href="https://www.geeksforgeeks.org/page-replacement-algorithms-in-operating-systems/" style="color: black;">Page replacement algorithms <span class="icon icon-arrow-right2"></span></a></li>
+              <li><a href="https://www.youtube.com/watch?v=Q33KBiDriJY&list=PL9ooVrP1hQOEloRCBI97ZXkWUg6MJn0Yf" style="color: black;">Web development Tutorials <span class="icon icon-arrow-right2"></span></a></li>
+
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+        
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-distributed widget clearfix">
+                        <div class="widget-title">
+                            <h3><strong>Team Members</strong></h3>
+              <p style="color: black; line-height: 30px">1) Yukta Desai<br> 2) Urvashi Vasita<br> 3) Yug Thakkar<br> 4) Dhyani Prajapati<br> 5) Vomini Desai</p>
+                        </div>
+            
+                                 
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
+
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

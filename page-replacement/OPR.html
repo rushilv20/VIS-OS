@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Replacement Alogrithms</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="pull-left visible-md visible-lg">
+            <div id="logo-img"></div>
+          </a>
+
+          <div class="navbar-brand">
+            <a href="index.html"><h1>Optimal Page Replacement</h1></a>
+          </div>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+            <li>
+              <a href="menu-categories.html">
+                <br class="hidden-xs"> Topics</a>
+            </li>
+            <li>
+              <a href="optimal.html">
+                <br class="hidden-xs"> Live Simulation</a>
+            </li>
+            <li>
+              <a href="index.html">
+                <br class="hidden-xs"> Home</a>
+            </li>
+            <li>
+              <a href="#">
+                <br class="hidden-xs"> About Us</a>
+            </li>
+          </ul><!-- #nav-list -->
+        </div><!-- .collapse .navbar-collapse -->
+      </div><!-- .container -->
+    </nav><!-- #header-nav -->
+  </header>
+
+  
+
+  <div id="main-content" class="container">
+    <div class="jumbotron">
+      <h1 style="text-align: center; color: black">Introduction</h1><br><br>
+      <p><h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">. In optimal page replacement algorithm, the page that is not used for a long time in the future is replaced. Since this algorithm “looks” into the future this algorithm becomes practically impossible to implement in real life. But since this algorithm is near to perfect, it can be used as a benchmark to gauge other algorithms. This is the more optimal algorithm. Optimal page replacement algorithm has the least number of page faults.
+
+        </h4>
+      </p>
+        <h3 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;"><strong>Example:</strong></h3>
+        <h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">Consider page reference string 1,2,3,4,2,1,5,6,2,1,2,3,7,3,2,1,2,3,5 with 3 page frames.Find number of page faults.<br>
+          1) The first page reference comes for page 1 and since it is not available in the memory, reference to page 1 will result in page fault so we need to bring page 1 into the memory and for that we need to allocate free memory. Since we have total three free frames available, one of the free frame will be allocated to page 1.<br>
+          2) Next page references are for page 2 and page 3 respectively and due to absence of that pages in the memory they will generate 2 page faults and we will allocate both free frames to page 2 and page 3 respectively.<br>
+          3) After the page 3, next reference is for page 4 in the page reference string but now we don’t have any free frames so operating system has to take decision for ⦁  swapping using ⦁  page replacement algorithm. According to our optimal algorithm the page that has the reference far away in the reference string will be selected for the replacement so if we look future references of all the pages that are available in memory i.e. page 1, 2 and 3 we come to know that reference for page three is the far away that the references of page 1 and 2 so page 3 will be selected for replacement assuming that it will be required in future but not now. So page 3 will be replaced by page 4.<br>
+          4) Next two references for page 2 and 1 are already available in the memory so no page fault will be generated so no replacement is required.<br>
+          5) Note that the next reference is for page 5 and since it is not available in the memory again page fault will be generated. Looking to the page reference string for future references of pages 1, 2 and 4 respectively, we came to know that there is no future reference for page 4 in the page reference string so we are assuming that it is far away than the other pages present in the memory as in practical environment new requests keep arriving constantly so here page 4 will be the victim page for the replacement and it will be replaced by page 5.<br>
+          6) After that next reference is for page 6 and it will be replaced by page 5 due to page fault. Since page 2 and 1 are already available in the memory, next three references for the page 2,1 and 2 no page fault will be generated.<br>
+          7) Similarly all the page reference will be checked and where necessary, page replacement will be done after looking to their future reference depending on how far the reference for particular page is.<br>
+          8) Notice the 16th page reference in the page reference string for page 2. At this point we have page 3, 7 and 6 in the memory and the absence of page 2 will result in new page fault. For the selection of victim page, we can notice that future references for page 6 and 7 could not be found in the page reference string so we can assume that their references might be far war and we since we have two such pages we can select either page 6 or page 7 but normally FIFO policy can be useful to break the tie.<br>
+          9) The complete calculation of page faults are given on the above picture please refer to it. You can allocated free frames either from top or bottom. It does not affect the result.<br>
+
+
+
+
+
+</h4>
+<p style="text-align: center;">
+  <img src="opr.png"></p>
+    </div>
+</div>
+
+
+    <div id="home-tiles" class="row">
+    
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="FIFO.html"><div id="menu-tile"><span style="color: rgb(17, 16, 16);">First In First Out</span></div></a>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="Belady Anamokly.html"><div id="specials-tile">"><span style="color: rgb(14, 12, 12);">Belady's Anamoly</span></div></a>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <a href="LRU.html"><div id="fourth-tile"><span style="color: rgb(20, 19, 19);">Least Recently Used</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="MRU.html"><div id="MRU-tile"><span style="color: rgb(20, 19, 19);">Most Recently Used</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="Random.html"><div id="Random-tile"><span style="color: rgb(20, 19, 19);"> Random Page Replacement</span></div></a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

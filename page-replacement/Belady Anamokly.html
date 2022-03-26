@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page Replacement Alogrithms</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+  </head>
+<body>
+  <header>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index.html" class="pull-left visible-md visible-lg">
+            <div id="logo-img"></div>
+          </a>
+
+          <div class="navbar-brand">
+            <a href="index.html"><h1>Belady Anamoly in First In First Out(FIFO)</h1></a>
+          </div>
+
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div id="collapsable-nav" class="collapse navbar-collapse">
+           <ul id="nav-list" class="nav navbar-nav navbar-right">
+            <li>
+              <a href="menu-categories.html">
+                <br class="hidden-xs"> Topics</a>
+            </li>
+            <li>
+              <a href="fifo_page.html">
+              	<br class="hidden-xs"> Live Simulation</a>
+            </li>
+            <li>
+              <a href="index.html">
+                <br class="hidden-xs"> Home</a>
+            </li>
+            <li>
+              <a href="#">
+                <br class="hidden-xs"> About Us</a>
+            </li>
+          </ul><!-- #nav-list -->
+        </div><!-- .collapse .navbar-collapse -->
+      </div><!-- .container -->
+    </nav><!-- #header-nav -->
+  </header>
+
+  
+
+  <div id="main-content" class="container">
+    <div class="jumbotron">
+      <h1 style="text-align: center; color: black">Introduction</h1><br><br>
+      <p><h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">Generally, on increasing the number of frames to a process’ virtual memory, its execution becomes faster as less number of page faults occur. Sometimes the reverse happens, i.e. more number of page faults occur when more frames are allocated to a process. This most unexpected result is termed as Belady’s Anomaly.
+
+      Belady’s anomaly is the name given to the phenomenon where increasing the number of page frames results in an increase in the number of page faults for a given memory access pattern.
+
+      This phenomenon is commonly experienced in following page replacement algorithms:
+      1. First in first out (FIFO)
+      2. Second chance algorithm
+      3. Random page replacement algorithm
+        </h4>
+      </p>
+        <h3 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;"><strong>Reason of Belady’s Anomaly –</strong></h3><br>
+        <h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">The other two commonly used page replacement algorithms are Optimal and LRU, but Belady’s Anamoly can never occur in these algorithms for any reference string as they belong to a class of stack based page replacement algorithms.
+
+A stack based algorithm is one for which it can be shown that the set of pages in memory for N frames is always a subset of the set of pages that would be in memory with N + 1 frames. For LRU replacement, the set of pages in memory would be the n most recently referenced pages. If the number of frames increases then these n pages will still be the most recently referenced and so, will still be in the memory. While in FIFO, if a page named b came into physical memory before a page – a then priority of replacement of b is greater than that of a, but this is not independent of the number of page frames and hence, FIFO does not follow a stack page replacement policy and therefore suffers Belady’s Anomaly.
+
+Example: Consider the following diagram to understand the behaviour of a stack-based page replacement algorithm
+</h4>
+<p style="text-align: center;">
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/stackbased.png"></p>
+    
+<h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">The diagram illustrates that given the set of pages i.e. {0, 1, 2} in 3 frames of memory is not a subset of the pages in memory – {0, 1, 4, 5} with 4 frames and it is a violation in the property of stack based algorithms. This situation can be frequently seen in FIFO algorithm.
+</h4>
+<h3 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;"><strong>Belady’s Anomaly in FIFO –</strong></h3><br>
+<h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">Assuming a system that has no pages loaded in the memory and uses the FIFO Page replacement algorithm. Consider the following reference string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5 
+
+<strong>Case-1:</strong> If the system has 3 frames, the given reference string on using FIFO page replacement algorithm yields a total of 9 page faults. The diagram below illustrates the pattern of the page faults occurring in the example.
+</h4>
+<p style="text-align: center;">
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/fifo3.png"></p>
+  <h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;"><strong>Case-2:</strong> If the system has 4 frames, the given reference string on using FIFO page replacement algorithm yields a total of 10 page faults. The diagram below illustrates the pattern of the page faults occurring in the example.
+</h4>
+<p style="text-align: center;">
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/fifo4.png"></p>
+ <h4 style="color: black; font-family: 'Oxygen', sans-serif;line-height: 25px;">It can be seen from the above example that on increasing the number of frames while using the FIFO page replacement algorithm, the number of page faults increased from 9 to 10.
+
+<strong>Note </strong>– It is not necessary that every string reference pattern cause Belady anomaly in FIFO but there are certain kind of string references that worsen the FIFO performance on increasing the number of frames.
+</h4>
+  </div>
+</div>
+    <div id="home-tiles" class="row">
+    
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <a href="FIFO.html"><div id="menu-tile"><span style="color: rgb(17, 16, 16);">First In First Out</span></div></a>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+      	<a href="OPR.html"><div id="map-tile">"><span style="color: rgb(14, 12, 12);">Optimal Page Replacement</span></div></a>
+      </div>
+      <div class="col-md-4 col-sm-12 col-xs-12">
+      	<a href="LRU.html"><div id="fourth-tile"><span style="color: rgb(20, 19, 19);">Least Recently Used</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="MRU.html"><div id="MRU-tile"><span style="color: rgb(20, 19, 19);">Most Recently Used</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="Random.html"><div id="Random-tile"><span style="color: rgb(20, 19, 19);"> Random Page Replacement</span></div></a>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="Random.html"><div id="Random-tile"><span style="color: rgb(20, 19, 19);"> Random Page Replacement</span></div></a>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
