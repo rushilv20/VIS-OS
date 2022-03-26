@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <title>Scheduling Algorithms</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+
+    <link rel="icon" type="image/png" href="img/icon.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.6.1/css/pikaday.min.css" />
+    <link rel="stylesheet" href="css/Navigation-Clean.css" />
+    <link rel="stylesheet" href="css/algo.css">
+    <link rel="stylesheet" href="css/radio_button.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/avg.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0148eacee4.js" crossorigin="anonymous"></script>
+</head>
+
+<body >
+
+  <section id="title">
+    <div class="container-fluid">
+      <!-- navigation bar -->
+      <nav class="navbar navbar-expand-lg ">
+        <i class="icon fas fa-desktop fa-4x"></i>
+        <a class="navbar-brand" href="">Operating<br>System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><i class="icon fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="navi-current nav-link" href="algorithms.html">Scheduling Algorithms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="page_replacement/index.html">Page Replacement Algorithms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ourteam.html">Our Team</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+
+<section id="algorithms">
+
+    <form>
+        <div class="my-heading">
+            <h3 class="text-center">Select Your Scheduling Algorithm</h3>
+        </div>
+        <div style="height: 150px; padding: 5px;">
+            <div id="radio" class="container-radio">
+                <input class="option-input radio btn-check" type="radio" name="type" id="FCFS" onclick="radioClicked(this.id)">
+                <label class="btn btn-dark" for="FCFS">&nbsp;FCFS</label>
+
+                <input class="option-input radio btn-check" type="radio" name="type" id="SJF" onclick="radioClicked(this.id)">
+                <label class="btn btnState btn-dark" for="SJF">&nbsp;SJF</label>
+
+                <input class="option-input radio btn-check" type="radio" name="type" id="RR" onclick="radioClicked(this.id)">
+                <label class="btn btn-dark" for="RR">&nbsp;ROUND ROBIN</label>
+
+                <!-- <input class="option-input radio" type="radio" name="type" id="LJF" onclick="radioClicked(this.id)">
+                <label for="LJF">&nbsp;LJF</label> -->
+
+                <input class="option-input radio btn-check" type="radio" name="type" id="PR" onclick="radioClicked(this.id)">
+                <label class="btn btn-dark" for="PR">&nbsp;PRIORITY</label>
+
+                <input class="option-input radio btn-check" type="radio" name="type" id="LRTF" onclick="radioClicked(this.id)">
+                <label class="btn btn-dark" for="LRTF">&nbsp;LRTF</label>
+
+                <input class="option-input radio btn-check" type="radio" name="type" id="SRTF" onclick="radioClicked(this.id)">
+                <label class="btn btn-dark" for="SRTF">&nbsp;SRTF</label>
+            </div>
+        </div>
+
+          <div class="enterArea">
+              <strong>Enter Arrival Time:</strong>
+
+              <span><input type="number"  min="0" id="AT" placeholder="Enter Arrival Time" style="height: 30px; font-family: cursive;
+                          background-color: white; color: black; border: 2px solid
+                          black;"></span>
+
+            <br><br>
+            <br>
+
+
+            <strong>Enter Burst Time: &nbsp</strong>
+              <span><input type="number" min="0" id="BT" placeholder="Enter Burst Time" style="height: 30px; font-family: cursive;
+                          background-color: white; color: black; border: 2px solid
+                          black;"></span>
+
+            <br><br>
+            <br>
+              <span id="timequanta" style="left: 0; display: none;">
+                  <strong id="timetext">Enter Time Quanta: &nbsp</strong>
+                  <span><input type="number" min="0" id="TQ" placeholder="Enter Time Quanta" style="height: 30px;
+                              font-family: cursive; background-color: white;
+                              color: black; border: 2px solid black;"></span>
+              </span>
+
+
+            <button type="button" id="add" class="btn btn-primary" onclick="addRow()">Add a Row +</button>
+            <button type="button" id="delete" class="btn btn-danger" onclick="deleteRow()">Delete a Row -
+            </button>
+            <div class="avg-text" id="average">Avg. Completion Time = <input class="ans-avg" type="text" id="averagebox1"
+                    placeholder="0" readonly></div>
+            <br><br>
+            <button type="button" class="btn btn-success" id="execute" onclick="calculate()">Execute</button>
+            <div class="avg-text" id="average">Avg. Turn Around Time = <input class="ans-avg" type="text" id="averagebox2"
+                    placeholder="0" readonly> </div>
+        </div>
+        <br>
+    </form>
+    <div style="height:10px; ">
+
+    </div>
+    <table id="table" class="table table-dark" style="width: 100%;">
+        <thead>
+            <tr>
+                <th colspan="9" style="width: 100%; text-align: center;font-size:larger">SCHEDULING
+                    TABLE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="PI" style="width:12%;">Process ID</td>
+                <td style="width: 12%;">ArrivalTime</td>
+                <td style="width: 12%;">Burst Time</td>
+                <td id="pcol" style="width: 10%;">Priority</td>
+                <td id="RS" style="width: 16%;">Response Time</td>
+                <td style="width: 10%;">TAT</td>
+                <td style="width: 10%;">CT</td>
+                <td style="width: 12%;">Waiting Time</td>
+                <td id="color-code" style="width:6%;">Color</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+
+    <br>
+    <div id="animator" style="display: block; position: relative;">
+        <span id="cover" style="display: block; position: absolute; margin:
+                0; top: 0; left: 2px; width: 100%; height: 100px;
+                background-color: whitesmoke; z-index: 8;">
+        </span>
+        <table class="outputTable table table-dark" id="mytb" style="display: inline; position: absolute; top:
+                2px; left: 10px;">
+            <tr  id="processr"></tr>
+            <tr  id="timer"></tr>
+        </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="graph-container" style="padding: 50px;">
+        <center>
+            <canvas id="myChart" width="800" height="650"></canvas>
+        </center>
+    </div>
+    <br>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+<script src="js/canvasjs.min.js"></script>
+<script src="js/os.js" defer></script>
+<script src="js/animation.js" defer></script>
+<script src="js/jquery.min.js" defer></script>
+<script src="js/Chart.min.js" defer></script>
+</body>
+<footer id="footer">
+  <p>© Copyright 2021 Scheduling Algorithm</p>
+</footer>
+</html>

@@ -1,0 +1,153 @@
+html{
+  background-color: #ff6f61;
+  text-align: left;
+}
+
+
+a{
+  color: #ff6f61;
+}
+
+a:hover{
+  color: white;
+}
+
+.extra{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.extra-read{
+  margin-top: 40px;
+}
+
+.try-now-btn:hover{
+  color: white;
+}
+
+.read-text{
+  color: grey;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical
+}
+
+#title{
+  background-color: whitesmoke;
+}
+.container-radio{
+  text-align: center;
+  padding-top: 40px;
+}
+label{
+  margin-left: 5px;
+}
+.navbar-brand{
+  font-family: "Ubuntu";
+  font-size: 2rem;
+  line-height: 1.5;
+  color: black;
+}
+
+.icon{
+  margin-right: 10px;
+}
+
+.navbar-brand:hover{
+  color: black;
+}
+
+.nav-link{
+  color: black;
+}
+
+.nav-link:hover{
+  color: #ff6f61;
+}
+
+.icon{
+  padding-top: 5px;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+}
+
+.navbar-nav {
+  margin-right: 20px;
+}
+.container-fluid {
+  padding: 1% 10%;
+}
+
+#introduction{
+  text-align: center;
+  color: whitesmoke;
+  background-color: #ff6f61;
+
+}
+
+.intro-container{
+  padding: 8% 0;
+}
+
+h2{
+  font-family: "Montserrat";
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+.control {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.control:hover {
+  border-color: transparent;
+}
+
+#cards{
+  background-color: whitesmoke;
+}
+
+.cards-container{
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.cards-text{
+  color: grey;
+
+}
+
+.algo-name{
+  margin-bottom: 50px;
+}
+.try-now-btn{
+  border-color: #ff6f61;
+  color: #ff6f61;
+  box-shadow: none;
+}
+
+
+.try-now-btn:hover{
+  border-color: #ff6f61;
+  background-color: #ff6f61;
+}
+
+.try-now{
+  text-decoration: none;
+}
+
+#footer{
+  padding: 5%;
+}
+
+#introduction-carousel{
+  height: 200px;
+}
+#algorithms{
+  background-color: whitesmoke;
+}

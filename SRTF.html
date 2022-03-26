@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Scheduling Algorithms</title>
+  <link rel="icon" href="images/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <!-- css -->
+  <link rel="stylesheet" href="css/SRTF.css">
+  <!-- Fontawesome -->
+  <script src="https://kit.fontawesome.com/0148eacee4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+  <section id="title">
+    <div class="title-navigation container-fluid">
+      <!-- navigation bar -->
+      <nav class="navbar navbar-expand-lg">
+        <i class="icon fas fa-desktop fa-4x"></i>
+        <a class="navbar-brand" href="">Operating<br>System</a>
+        <button class="toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><i class="icon fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="algorithms.html">Scheduling Algorithms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="page_replacement/index.html">Page Replacement Algorithms</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ourteam.html">Our Team</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
+    <section id="introduction">
+
+    <h1 id="algo-title">Shortest Remaining Time First</h1>
+    <p>The Preemptive version of Shortest Job First(SJF) scheduling is known as Shortest Remaining Time First (SRTF). With the help of the SRTF algorithm, the process having the smallest amount of time remaining until completion is selected first to execute.</p>
+    <p>So basically in SRTF, the processes are scheduled according to the shortest remaining time.</p>
+    <p>However, the SRTF algorithm involves more overheads than the Shortest job first (SJF)scheduling, because in SRTF OS is required frequently in order to monitor the CPU time of the jobs in the <strong>READY</strong> queue and to perform context switching.</p>
+    <p>In the <strong>SRTF scheduling algorithm</strong>, the execution of any process can be stopped after a certain amount of time. On arrival of every process, the short-term scheduler schedules those processes from the list of available processes &amp; running processes that have the least remaining burst time.</p>
+    <p>After all the processes are available in the ready queue, then, No preemption will be done and then the algorithm will work the same as SJF scheduling. In the Process Control Block, the context of the process is saved, when the process is removed from the execution and when the next process is scheduled. The PCB is accessed on the next execution of this process.</p>
+
+    <h3 class = "subtitle">Advantages of SRTF</h3>
+    <p>The main advantage of the SRTF algorithm is that it makes the processing of the jobs faster than the SJF algorithm, mentioned it’s overhead charges are not counted.</p>
+
+    <h3 class = "subtitle">Disadvantages of SRTF</h3>
+    <p>In SRTF, the context switching is done a lot more times than in SJN due to more consumption of the CPU's valuable time for processing. The consumed time of CPU then adds up to its processing time and which then diminishes the advantage of fast processing of this algorithm.</p>
+
+  </section>
+  </body>
+
+  <footer id="footer">
+    <p>© Copyright 2021 Scheduling Algorithm</p>
+  </footer>
+</html>
